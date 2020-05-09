@@ -29,8 +29,10 @@ def main():
         results.append(run_kmeans(data_path,min_k,max_k,max_iter))
 
     results_array = np.array(results)
-    counts = np.bincount(results_array)
+    counts = np.bincount(results_array)     
+    print("-----------------------------")
     print("Best K Value = " + str(np.argmax(counts)))
+    print("-----------------------------")
 
 def run_kmeans(data_path,min_k,max_k,max_iter):
     '''Determine optimal k clusters using Elbow Method
