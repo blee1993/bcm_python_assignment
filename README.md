@@ -3,7 +3,7 @@
 
 ## Description
 
-`find_k.py` finds the best guess for k using the Elbow Method and the Sum of Square Distances
+`find_k.py` finds the best guess for k clusters using the Elbow Method and the Sum of Square Distances
 
 ## To Run
 
