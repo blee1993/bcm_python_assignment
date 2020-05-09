@@ -235,7 +235,7 @@ def best_k(k_values,SSD_values):
                 final_k = k_values[i+1]
                 return(final_k)
   
-    return(final_ks)
+    return(final_k)
     
 
 if __name__ == "__main__":
