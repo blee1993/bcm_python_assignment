@@ -86,9 +86,6 @@ def run_kmeans(data_path,min_k,max_k,max_iter):
                 centroid_assignment = assign_cluster(data[i],centroids)
                 datapoint_centroid_assignment_matrix.append([datapoint_index,centroid_assignment])
             
-            #print(datapoint_centroid_assignment_matrix)
-            
-            
             # Update centroid
             centroids = update_centroids(datapoint_centroid_assignment_matrix,data,k)
             iteration += 1
@@ -98,13 +95,6 @@ def run_kmeans(data_path,min_k,max_k,max_iter):
         SSD = sum_of_squared_distances(datapoint_centroid_assignment_matrix,centroids,data)
         SSD_values.append(SSD)
         
-    #k vs SSD
-    #print(k_values)
-    #print(SSD_values)
-    
-    # Select best k
-    #final_k = best_k(k_values,SSD_values)
-    #print("Best K by Elbow Method using SSD = " + str(final_k))
     return(best_k(k_values,SSD_values))
     
         
@@ -229,7 +219,7 @@ def best_k(k_values,SSD_values):
             SSD_comparator = SSD_values[i]
 
         final_k = k_values[len(k_values)-1] # initiialize
-        #print(percent_changes)        
+         
         for i in range(0,len(percent_changes)):
             if (percent_changes[i]) <= -(tol): 
                 final_k = k_values[i+1]
