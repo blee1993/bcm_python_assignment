@@ -25,7 +25,7 @@ def main():
     
     results = []
     for i in range(5): 
-        print("##### RUN # " + str(i+1) + "#########")
+        print("##### RUN #" + str(i+1) + " #########")
         results.append(run_kmeans(data_path,min_k,max_k,max_iter))
 
     results_array = np.array(results)
