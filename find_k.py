@@ -19,7 +19,7 @@ def main():
     max_k = 8
     
     # Max Interations for Determining Centroids (used for Stopping Criteria)
-    max_iter = 3
+    max_iter = 10
     
     ##################################################################################
     
