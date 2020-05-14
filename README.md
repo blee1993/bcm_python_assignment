@@ -23,7 +23,7 @@ Invoke script using the the command:
 `python3 find_k.py`
 
 <br />
-The function run_kmeans(data_path,min_k,max_k,max_iter) is invoked 5 times to ensure best estimate of k due to the Elbox Method. The most frequent result is returned as the final k value. The Elbow Method returns the best k value according to observance of at least a 7% drop in SSD for each k. This number was determined by trial and error. Another method to experiment with in the future is the Silhouette Method.  <br />
+The function run_kmeans(data_path,min_k,max_k,max_iter) is invoked 5 times to ensure best estimate of k due to the Elbow Method. The most frequent result is returned as the final k value. The Elbow Method returns the best k value according to observance of at least a 7% drop in SSD for each k. This number was determined by trial and error. Another method to experiment with in the future is the Silhouette Method.  <br />
 
 ## Results
 
