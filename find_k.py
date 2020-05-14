@@ -19,7 +19,7 @@ def main():
     max_k = 8
     
     # Max Interations for Determining Centroids (used for Stopping Criteria)
-    max_iter = 10
+    max_iter = 3
     
     ##################################################################################
     
@@ -112,9 +112,9 @@ def l2_distance(a,b):
     '''
 
             
-    dist = 0
-    for i in range(len(a)):
-        dist = dist + (a[i]-b[i])**2
+    dist = np.sqrt(sum(np.power(x-y,2) for x,y in zip(a,b)))
+    
+        
         
     return(dist)
     
@@ -125,7 +125,7 @@ def assign_cluster(a,centroids):
     input: a is one n-dimensional datapoint
            centroids is a k-dimensional list containing the datapoints of cluster centroids 
     
-    output: winning_cluster is the cluster number of the closed centroid (centroid_indices[winning_centroid_index] will provide the original dataset index nubmer if first iteration)
+    output: winning_cluster is the cluster number of the closest centroid (centroid_indices[winning_centroid_index] will provide the original dataset index nubmer if first iteration)
     
     '''
     
