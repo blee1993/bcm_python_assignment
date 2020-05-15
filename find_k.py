@@ -113,7 +113,7 @@ def l2_distance(a,b):
           
     a = np.array(a)
     b = np.array(b)        
-    dist = np.sqrt(np.sum((a-b)** 2))
+    dist = np.linalg.norm(a-b)
         
     return(dist)
     
