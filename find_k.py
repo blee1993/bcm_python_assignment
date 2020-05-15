@@ -19,7 +19,7 @@ def main():
     max_k = 8
     
     # Max Interations for Determining Centroids (used for Stopping Criteria)
-    max_iter = 10
+    max_iter = 12
     
     ##################################################################################
     
@@ -64,7 +64,7 @@ def run_kmeans(data_path,min_k,max_k,max_iter):
     for k in range(min_k,max_k+1):
         print("Calulating SSD for k = " + str(k))
         k_values.append(k)    
-        iteration = 0
+        iteration = 1
         
         # Determine initial centroids at random from the dataset
         centroid_indices = []
@@ -78,7 +78,7 @@ def run_kmeans(data_path,min_k,max_k,max_iter):
             centroids.append(data[centroid_indices[i]])
         
         while iteration <= max_iter:
-            #print("ITERATION #: " + str(iteration))
+            print("ITERATION #: " + str(iteration))
             
             # Assign datapoints to an initial cluster(centroid)
             datapoint_centroid_assignment_matrix = []
@@ -110,11 +110,10 @@ def l2_distance(a,b):
            
     output: dist is a float valued at the distance between a and b
     '''
-
-            
-    dist = np.sqrt(sum(np.power(x-y,2) for x,y in zip(a,b)))
-    
-        
+          
+    a = np.array(a)
+    b = np.array(b)        
+    dist = np.sqrt(np.sum((a-b)** 2))
         
     return(dist)
     
@@ -214,19 +213,19 @@ def best_k(k_values,SSD_values):
         SSD_values = [SSD/10e8 for SSD in SSD_values]
         SSD_comparator = SSD_values[0]
         percent_changes = []
-    
+        
         for i in range(1,len(k_values)):
             percent_change = np.divide( (SSD_values[i] - SSD_comparator), np.abs(SSD_comparator) ) * 100
             percent_changes.append(percent_change)     
             SSD_comparator = SSD_values[i]
 
         final_k = k_values[len(k_values)-1] # initiialize
-         
+        
         for i in range(0,len(percent_changes)):
             if (percent_changes[i]) <= -(tol): 
                 final_k = k_values[i+1]
                 return(final_k)
-  
+    
     return(final_k)
     
 
